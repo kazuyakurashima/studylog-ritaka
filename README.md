@@ -97,3 +97,34 @@ This repository is a learning prototype and may evolve as the StudySpark brand e
 ※ご意見やフィードバック大歓迎です。
 
 Let's make self-directed learning joyful and trackable!
+
+# StudyLog Ritaka
+
+A prototype study log app created for Ritaka, a 6th-grade student.
+
+This MVP version focuses on personalized learning reflection and daily study tracking. It serves as the initial version of the broader StudyLog / StudySpark project, aimed at supporting self-directed learning in children.
+
+## ※日本語説明
+
+小学生「りたかくん」向けに作成した、学習ログアプリの最初バージョン(MVP)です。
+
+- 自分の学習を振り返る機能
+- 日々の学習経過を簡単に記録する機能
+
+を主に実装しており、以後はその結果をもとに、他の学年や生徒への展開も検討中です。
+
+## Stack
+
+- TypeScript
+- HTML / CSS
+- LocalStorage (MVP phase)
+
+---
+
+This repository is a learning prototype and may evolve as the StudySpark brand expands.
+
+---
+
+※ご意見やフィードバック大歓迎です。
+
+Let's make self-directed learning joyful and trackable!
