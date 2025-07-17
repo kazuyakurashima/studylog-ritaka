@@ -1,4 +1,16 @@
+import { authRepository } from "@/modules/auth/auth.repository";
+import { useState } from "react";
+
 function Signup() {
+  const [name,setName] = useState('');
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
+
+  const signup = async () => {
+    const user = await authRepository.signup(name, email, password);
+    console.log(user);
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col items-center">
@@ -17,6 +29,7 @@ function Signup() {
                 </label>
                 <div className="mt-1">
                   <input
+                    onChange={(e) => setName(e.target.value)}
                     id="username"
                     name="username"
                     placeholder="ユーザー名"
@@ -35,6 +48,7 @@ function Signup() {
                 </label>
                 <div className="mt-1">
                   <input
+                    onChange={(e) => setEmail(e.target.value)}
                     id="email"
                     name="email"
                     placeholder="メールアドレス"
@@ -53,6 +67,7 @@ function Signup() {
                 </label>
                 <div className="mt-1">
                   <input
+                    onChange={(e) => setPassword(e.target.value)}
                     id="password"
                     name="password"
                     placeholder="パスワード"
@@ -63,7 +78,10 @@ function Signup() {
                 </div>
               </div>
               <div>
-                <button className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                <button 
+                disabled={name === '' || email === '' ||password === ''}
+                onClick={signup}
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 disabled:opacity-50 disabled:cursor-not-allowed">
                   登録
                 </button>
               </div>
@@ -76,3 +94,16 @@ function Signup() {
 }
 
 export default Signup;
+
+
+// 🌈1. 全体像：このコードってなにしてるの？
+// このコンポーネントはずばり…
+// 🎓**「ユーザーが名前・メール・パスワードを入力して、登録できるフォーム画面」**を作ってるの！！
+
+// まるで「夏期講習 StudyLog」の受付窓口🏫✨
+// 1.名前・メール・パスワードを入力
+// 2.登録ボタンをクリック
+// 3.SupabaseのauthRepository.signup()に送って、ユーザーを登録
+// 4.登録されたユーザー情報をconsole.logで表示✨
+
+// というシンプルだけどとっても大切な流れなんだよ〜っ💘
